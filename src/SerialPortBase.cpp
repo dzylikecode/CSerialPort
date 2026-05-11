@@ -69,10 +69,10 @@ int CSerialPortBase::getLastError() const
 
 const char *CSerialPortBase::getLastErrorMsg() const
 {
-    return getErrorMsg(m_lastError);
+    return errorToString(m_lastError);
 }
 
-const char *CSerialPortBase::getErrorMsg(int code) const
+const char *CSerialPortBase::errorToString(int code)
 {
     switch (code)
     {
