@@ -7,7 +7,7 @@ target("cserialport")
     if is_plat("windows") and kind == "shared" then
         add_files("$(projectdir)/lib/version.rc")
     end
-    add_includedirs(".") -- cserialport.h
+    add_includedirs(".", {public = true}) -- cserialport.h
     add_files("cserialport.cpp")
 
 -- CSerialPort c binding example
