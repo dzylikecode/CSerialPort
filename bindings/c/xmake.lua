@@ -1,19 +1,13 @@
-add_includedirs(".") -- cserialport.h
+local kind = get_config("kind") or "static"
 
 -- CSerialPort c binding shared library
 target("cserialport")
-    set_kind("shared")
+    set_kind(kind)
     add_defines("CSERIALPORT_BINDING_LANGUAGE=C") -- CSerialPort Binding Language
-    if is_plat("windows") then
+    if is_plat("windows") and kind == "shared" then
         add_files("$(projectdir)/lib/version.rc")
     end
-    
-    add_files("cserialport.cpp")
-
--- CSerialPort c binding static library
-target("cserialport-static")
-    add_defines("CSERIALPORT_BINDING_LANGUAGE=C") -- CSerialPort Binding Language
-    set_kind("static")
+    add_includedirs(".") -- cserialport.h
     add_files("cserialport.cpp")
 
 -- CSerialPort c binding example

@@ -1,10 +1,6 @@
--- cserialport shared library
-target("libcserialport")
-    set_kind("shared")
-    if is_plat("windows") then
+local kind = get_config("kind") or "static"
+target("cserialport")
+    set_kind(kind)
+    if is_plat("windows") and kind == "shared" then
         add_files("version.rc")
     end
-
--- cserialport static library
-target("libcserialport-static")
-    set_kind("static")
