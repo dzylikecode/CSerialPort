@@ -50,17 +50,16 @@ elseif is_plat("macosx") then
     add_syslinks("Foundation", "IOKit")
 end
 
--- libcserialport
-includes("lib")
-
 -- examples
 if is_config("CSERIALPORT_BUILD_EXAMPLES", true) then
     includes("examples")
 end
 
--- bindings/c
+-- c++ or c
 if is_config("CSERIALPORT_BUILD_BINDING_C", true) then
     includes("bindings/c")
+else
+    includes("lib")
 end
 
 -- test
