@@ -429,9 +429,9 @@ const char *CSerialPortGetLastErrorMsg(i_handle_t handle)
     return "";
 }
 
-const char *CSerialPortErrorToString(int code)
+const char *CSerialPortErrorToString(enum SerialPortError error)
 {
-    return itas109::CSerialPort::errorToString(code);
+    return itas109::CSerialPort::errorToString(error);
 }
 
 void CSerialPortClearError(i_handle_t handle)
