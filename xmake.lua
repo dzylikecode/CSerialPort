@@ -18,7 +18,7 @@ if is_config("CSERIALPORT_ENABLE_DEBUG", true) then
 end
 
 if is_config("CSERIALPORT_ENABLE_UTF8", true) then
-    add_defines("CSERIALPORT_UTF8") -- CSerialPort UTF8
+    add_defines("CSERIALPORT_USE_UTF8") -- CSerialPort UTF8
 end
 
 -- common include dirs
